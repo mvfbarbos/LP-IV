@@ -1,0 +1,17 @@
+.botao{
+    background-color: #f0f0f0;
+    font-size:1.4em;
+    outline: none;
+
+
+    border: none;
+    border-bottom: solid 1px #555;
+    border-right: solid 1px #555 
+}
+
+.espaco{
+    grid-column: span 2;
+}
+.laranja {
+    background-color: darkgoldenrod;
+}
