@@ -56,7 +56,7 @@ export default class Principal extends Component {
             }
             
             switch (opCorrente) {
-                case "*":
+                case "x":
                     valores[0] = valores[0] * valores[1];
                     valores[1] = 0;
                     break;
@@ -65,7 +65,7 @@ export default class Principal extends Component {
             }
             
             switch (opCorrente) {
-                case "/":
+                case "÷":
                     valores[0] = valores[0] / valores[1];
                     valores[1] = 0;
                     break;
