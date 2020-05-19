@@ -1,6 +1,7 @@
 {
-  "name": "backend",
+  "name": "Backend",
   "version": "1.0.0",
+  "description": "",
   "main": "src/index.js",
   "scripts": {
     "dev_server": "nodemon",
@@ -9,11 +10,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "mongoose": "^4.7.0",
+    "mongoose": "^4.7.8",
     "node-restful": "^0.2.5",
     "nodemon": "^1.11.0"
   }

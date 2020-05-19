@@ -14,8 +14,6 @@ const estadoInicial = {
 };
 
 
-
-
 export default class Principal extends Component {
     state = { ...estadoInicial };
 
