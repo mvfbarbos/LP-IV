@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import PageHeader from "../template/pageHeader";
-import axios from "axios";
+import React, { Component } from 'react';
+import PageHeader from '../tamplete/pageHearder';
+import axios from 'axios';
 
-import TodoForm from "./todoForm";
-import TodoList from "./todoList";
+import TodoForm from './todoForm';
+import TodoList from './todoList';
 
-const URL = "http://localhost:3001/api/todos"
+const URL = 'http://localhost:3001/api/todos'
 
 export default class Todo extends Component {
     constructor(props){
         super(props)
 
-        this.state = {description: "", list:[]} 
+        this.state = {description: '', list:[]} 
 
         this.handleChanger = this.handleChanger.bind(this);
         this.handleAdd = this.handleAdd.bind(this);
@@ -22,41 +22,41 @@ export default class Todo extends Component {
         this.handleClear = this.handleClear.bind(this);
         
 
-        this.refresh();
+        this.refrech();
     }
 
     handleChanger(e){
         this.setState({...this.state, description: e.target.value})
     }
 
-    refresh(description = ""){ 
-        const search = description ? `&description__regex=/${description}/` : ""
+    refrech(description = ''){ 
+        const search = description ? `&description__regex=/${description}/` : ''
         axios.get(`${URL}?sort=-createdAt${search}`)
         .then(resp => this.setState({ ...this.state, description: description, list: resp.data}));
     }
     handleSearch(){
-        this.refresh(this.state.description)
+        this.refrech(this.state.description)
     }
 
     handleAdd(){
         const description = this.state.description;
         axios.post(URL, {description})
-        .then( resp => this.refresh());
+        .then( resp => this.refrech());
     }
     handleRemove(todo){
         axios.delete(`${URL}/${todo._id}`)
-        .then( resp => this.refresh());
+        .then( resp => this.refrech());
     }
     handleClear(){
-        this.refresh()
+        this.refrech()
     }
     handleMarkAsDone(todo){
         axios.put(`${URL}/${todo._id}`, {...todo, done: true})
-        .then( resp => this.refresh(this.state.description));
+        .then( resp => this.refrech(this.state.description));
     }
     handleMarkAsPending(todo){
         axios.put(`${URL}/${todo._id}`, {...todo, done: false})
-        .then( resp => this.refresh(this.state.description));
+        .then( resp => this.refrech(this.state.description));
     }
 
     render() {
